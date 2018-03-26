@@ -1,0 +1,22 @@
+<template bindable="currentPage, maxPages, totalRecords, baseRoute">
+    <ul class="pagination">
+        <li if.bind="currentPage > 1">
+            <a route-href="route.bind: baseRoute; params.bind: { page: (currentPage - 1) }">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+
+        <li repeat.for="index of maxPages" class.bind="currentPage === index + 1 ? 'active': ''">
+            <a route-href="route.bind: baseRoute; params.bind: { page: (index + 1) }">
+                ${index + 1}
+            </a>
+        </li>
+
+        <li if.bind="page != maxPages">
+            <a route-href="route.bind: baseRoute; params.bind: { page: (currentPage + 1) }">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+    <p if.bind="maxPages > 1"><strong>${totalRecords} Record${totalRecords != 1 ? 's' : ''}</strong></p>
+</template>

@@ -1,0 +1,26 @@
+<template>
+    <ai-dialog id="di-delete">
+        <ai-dialog-body>
+            <h4>${heading}</h4>
+
+            <ul class="error-list" if.bind="errors">
+                <li repeat.for="errorMessage of errors">
+                    ${errorMessage}
+                </li>
+            </ul>
+
+            <p>
+                <strong>Are you sure about it?</strong>
+            </p>
+            <p>
+                You are about to delete the following record:<br>
+                <strong>${properties | json}</strong>
+            </p>
+        </ai-dialog-body>
+
+        <div class="ai-dialog-footer">
+            <button click.trigger="cancel()" class="btn btn-danger">Cancel</button>
+            <button type="submit" click.trigger="ok()" class="btn btn-success">Confirm</button>
+        </div>
+    </ai-dialog>
+</template>

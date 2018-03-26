@@ -1,0 +1,10 @@
+<template bindable="crumbs">
+    <ol class="breadcrumb">
+        <li repeat.for="breadcrumb of crumbs">
+            <a route-href="route.bind: breadcrumb.route">
+                <i class="material-icons" if.bind="breadcrumb.hasIcon">${breadcrumb.icon}</i>
+                ${breadcrumb.routeTitle}
+            </a>
+        </li>
+    </ol>
+</template>

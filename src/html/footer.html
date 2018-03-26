@@ -1,0 +1,8 @@
+<template bindable="copyright, version">
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> ${ version | coalesce : '0.0.1' }
+        </div>
+        ${ copyright | coalesce : '<strong>Copyright &copy; RightCasinoMedia.</strong> All rights reserved.' }
+    </footer>
+</template>
